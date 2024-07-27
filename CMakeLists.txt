@@ -13,5 +13,6 @@ add_subdirectory(library)
 
 add_library(eurl-static STATIC ${src} ${header})
 target_link_libraries(eurl-static PUBLIC CURL::libcurl nlohmann_json)
+target_include_directories(eurl-static PUBLIC .)
 
 add_library(eurl ALIAS eurl-static)

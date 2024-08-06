@@ -37,7 +37,6 @@ namespace EURL {
     inline size_t write_to_json(void* contents, size_t size, size_t nmemb, json* s) {
         size_t newLength = size * nmemb;
         try {
-            // 将接收到的数据块解析为 JSON 对象
             *s = json::parse(static_cast<char *>(contents), static_cast<char *>(contents) + newLength);
         }
         catch (std::bad_alloc&e) {

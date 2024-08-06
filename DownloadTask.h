@@ -32,7 +32,7 @@ namespace EURL {
                 }
 
                 double fileSize;
-                curl_easy_getinfo(curl, CURLINFO_CONTENT_LENGTH_DOWNLOAD, &fileSize);
+                curl_easy_getinfo(curl, CURLINFO_CONTENT_LENGTH_DOWNLOAD_T, &fileSize);
                 curl_easy_cleanup(curl);
                 if (fileSize == -1)
                     return 0;

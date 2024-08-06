@@ -71,7 +71,7 @@ namespace EURL {
         if (header.Referer != "")
             headers = curl_slist_append(headers, header.Referer);
         curl_easy_setopt(pCurl, CURLOPT_HTTPHEADER, headers);
-        //将返回结果通过回调函数写到自定义的对象中
+
         curl_easy_setopt(pCurl, CURLOPT_URL, url);
         curl_easy_setopt(pCurl, CURLOPT_POSTFIELDS, data.c_str());
         curl_easy_setopt(pCurl, CURLOPT_POSTFIELDSIZE, data.size());
@@ -111,7 +111,6 @@ namespace EURL {
             threads.emplace_back(DownloadTask::Run, url, outputFiles[i], start, end);
         }
 
-        // 定期输出当前已下载的总字节数
         while (totalDownloaded < fileSize) {
             std::cout << "Downloaded: " << totalDownloaded << " / " << fileSize << " bytes" << std::flush;
             std::this_thread::sleep_for(std::chrono::seconds(1));
@@ -121,7 +120,6 @@ namespace EURL {
             thread.join();
         }
 
-        // 合并分块文件
         std::ofstream finalFile(savePath, std::ios::binary);
         if (!finalFile) {
             std::cerr << "Failed to open final file: " << savePath << std::endl;

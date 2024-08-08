@@ -12,7 +12,7 @@ namespace EURL {
         curl_easy_setopt(pCurl, CURLOPT_WRITEFUNCTION, write_to_file);
         curl_easy_setopt(pCurl, CURLOPT_WRITEDATA, &outfile);
         curl_easy_setopt(pCurl, CURLOPT_PROXY, proxy);
-        if (Debug) {
+        if ( DEBUGLOGING) {
             curl_easy_setopt(pCurl, CURLOPT_VERBOSE, 1L);
         }
         CURLcode res = curl_easy_perform(pCurl);
@@ -34,7 +34,7 @@ namespace EURL {
         curl_easy_setopt(pCurl, CURLOPT_WRITEFUNCTION, write_to_str);
         curl_easy_setopt(pCurl, CURLOPT_WRITEDATA, &response);
         curl_easy_setopt(pCurl, CURLOPT_PROXY, proxy);
-        if (Debug) {
+        if ( DEBUGLOGING) {
             curl_easy_setopt(pCurl, CURLOPT_VERBOSE, 1L);
         }
         CURLcode res = curl_easy_perform(pCurl);
@@ -81,7 +81,7 @@ namespace EURL {
             curl_easy_setopt(pCurl, CURLOPT_WRITEFUNCTION, write_to_json);
         curl_easy_setopt(pCurl, CURLOPT_WRITEDATA, &response);
         curl_easy_setopt(pCurl, CURLOPT_PROXY, proxy);
-        if (Debug) {
+        if ( DEBUGLOGING) {
             curl_easy_setopt(pCurl, CURLOPT_VERBOSE, 1L);
         }
         CURLcode res = curl_easy_perform(pCurl);

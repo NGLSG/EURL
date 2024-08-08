@@ -14,9 +14,9 @@
 #include "DownloadTask.h"
 using nlohmann::json;
 
-#define Debug true
+#define DEBUGLOGING true
 #ifdef NDEBUG
-#define Debug false
+#define  DEBUGLOGING false
 #endif
 
 namespace EURL {
